@@ -267,6 +267,34 @@ cartImg.onclick = function(){
         }
     }
     console.log("The total amount is: " + Math.trunc(totalPrice) + " $ and " + Math.round(Number(totalPrice.toString().split('.')[1]),2) + " cents");
+    let message = "Order Details: ";
+  
+    for (let eachItem of booksList) {
+      if (eachItem.qty === 0) {
+        continue;
+      } else {
+        message +=
+          eachItem.itemName +
+          " - Quantity: " +
+          eachItem.qty +
+          " ";
+      }
+    }
+  
+    message +=
+      " Total Amount: $" +
+      Math.trunc(totalPrice) +
+      " and " +
+      Math.round(
+        Number(totalPrice.toString().split(".")[1]),
+        2
+      ) +
+      " cents";
+  
+    window.open("https://wa.me/+1234567890/?text=" + message);
+
 }
 
 
+
+  
